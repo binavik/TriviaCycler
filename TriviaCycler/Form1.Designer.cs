@@ -1,0 +1,133 @@
+﻿
+namespace TriviaCycler
+{
+    partial class Form1
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+            this.fileMenu = new System.Windows.Forms.MenuItem();
+            this.menuStart = new System.Windows.Forms.MenuItem();
+            this.menuStop = new System.Windows.Forms.MenuItem();
+            this.menuSettings = new System.Windows.Forms.MenuItem();
+            this.menuExit = new System.Windows.Forms.MenuItem();
+            this.qABox = new System.Windows.Forms.Label();
+            this.timerBox = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.fileMenu});
+            // 
+            // fileMenu
+            // 
+            this.fileMenu.Index = 0;
+            this.fileMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuStart,
+            this.menuStop,
+            this.menuSettings,
+            this.menuExit});
+            this.fileMenu.Text = "File";
+            // 
+            // menuStart
+            // 
+            this.menuStart.Index = 0;
+            this.menuStart.Text = "Start";
+            this.menuStart.Click += new System.EventHandler(this.MenuStartOnClick);
+            // 
+            // menuStop
+            // 
+            this.menuStop.Enabled = false;
+            this.menuStop.Index = 1;
+            this.menuStop.Text = "Stop";
+            // 
+            // menuSettings
+            // 
+            this.menuSettings.Index = 2;
+            this.menuSettings.Text = "Settings";
+            this.menuSettings.Click += new System.EventHandler(this.MenuSettingsOnClick);
+            // 
+            // menuExit
+            // 
+            this.menuExit.Index = 3;
+            this.menuExit.Text = "Exit";
+            this.menuExit.Click += new System.EventHandler(this.MenuExitOnClick);
+            // 
+            // qABox
+            // 
+            this.qABox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.qABox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qABox.Location = new System.Drawing.Point(0, 0);
+            this.qABox.Name = "qABox";
+            this.qABox.Size = new System.Drawing.Size(1400, 582);
+            this.qABox.TabIndex = 0;
+            this.qABox.Text = "In Rhythmic Gymnastics Competitors Have Five Pieces Of Apparatus The Rope, Hoop, " +
+    "Ball, Club And What Else?";
+            this.qABox.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // timerBox
+            // 
+            this.timerBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.timerBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.timerBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.timerBox.Location = new System.Drawing.Point(0, 490);
+            this.timerBox.Name = "timerBox";
+            this.timerBox.Size = new System.Drawing.Size(1750, 238);
+            this.timerBox.TabIndex = 1;
+            this.timerBox.Text = "Timer goes here";
+            this.timerBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1400, 582);
+            this.Controls.Add(this.timerBox);
+            this.Controls.Add(this.qABox);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Menu = this.mainMenu1;
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.MainMenu mainMenu1;
+        private System.Windows.Forms.MenuItem fileMenu;
+        private System.Windows.Forms.MenuItem menuStart;
+        private System.Windows.Forms.MenuItem menuStop;
+        private System.Windows.Forms.MenuItem menuSettings;
+        private System.Windows.Forms.MenuItem menuExit;
+        private System.Windows.Forms.Label qABox;
+        private System.Windows.Forms.Label timerBox;
+    }
+}
+
