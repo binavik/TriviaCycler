@@ -43,7 +43,7 @@ namespace TriviaCycler
             setFontSize(qABox);
         }
 
-        private void setFontSize(Label box)
+        private void setFontSize(RichTextBox box)
         {
             float height = box.Height * 0.99f;
             float width = box.Width * 0.99f;
@@ -54,6 +54,7 @@ namespace TriviaCycler
 
             Font updatedFont = new Font(box.Font.FontFamily, box.Font.Size * Math.Min(widthRatio, heightRatio) * 3.0f, box.Font.Style);
             box.Font = updatedFont;
+            
         }
 
         public void setNewSettings(int question, int answer, string category)

@@ -36,8 +36,8 @@ namespace TriviaCycler
             this.menuStop = new System.Windows.Forms.MenuItem();
             this.menuSettings = new System.Windows.Forms.MenuItem();
             this.menuExit = new System.Windows.Forms.MenuItem();
-            this.qABox = new System.Windows.Forms.Label();
             this.timerBox = new System.Windows.Forms.Label();
+            this.qABox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // mainMenu1
@@ -79,37 +79,38 @@ namespace TriviaCycler
             this.menuExit.Text = "Exit";
             this.menuExit.Click += new System.EventHandler(this.MenuExitOnClick);
             // 
-            // qABox
-            // 
-            this.qABox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.qABox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.qABox.Location = new System.Drawing.Point(0, 0);
-            this.qABox.Name = "qABox";
-            this.qABox.Size = new System.Drawing.Size(1400, 582);
-            this.qABox.TabIndex = 0;
-            this.qABox.Text = "In Rhythmic Gymnastics Competitors Have Five Pieces Of Apparatus The Rope, Hoop, " +
-    "Ball, Club And What Else?";
-            this.qABox.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // timerBox
             // 
             this.timerBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.timerBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timerBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.timerBox.Location = new System.Drawing.Point(0, 490);
+            this.timerBox.Location = new System.Drawing.Point(0, 344);
             this.timerBox.Name = "timerBox";
-            this.timerBox.Size = new System.Drawing.Size(1750, 238);
+            this.timerBox.Size = new System.Drawing.Size(1400, 238);
             this.timerBox.TabIndex = 1;
             this.timerBox.Text = "Timer goes here";
             this.timerBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // qABox
+            // 
+            this.qABox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qABox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.qABox.Location = new System.Drawing.Point(0, 0);
+            this.qABox.Name = "qABox";
+            this.qABox.ReadOnly = true;
+            this.qABox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.qABox.Size = new System.Drawing.Size(1400, 344);
+            this.qABox.TabIndex = 2;
+            this.qABox.Text = "In Rhythmic Gymnastics Competitors Have Five Pieces Of Apparatus The Rope, Hoop, " +
+    "Ball, Club And What Else?";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 582);
-            this.Controls.Add(this.timerBox);
             this.Controls.Add(this.qABox);
+            this.Controls.Add(this.timerBox);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
@@ -126,8 +127,8 @@ namespace TriviaCycler
         private System.Windows.Forms.MenuItem menuStop;
         private System.Windows.Forms.MenuItem menuSettings;
         private System.Windows.Forms.MenuItem menuExit;
-        private System.Windows.Forms.Label qABox;
         private System.Windows.Forms.Label timerBox;
+        private System.Windows.Forms.RichTextBox qABox;
     }
 }
 
