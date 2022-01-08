@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace TriviaCycler
 {
     class RestClient
     {
-        private static HttpClient client = new HttpClient();
+        private HttpClient client = new HttpClient();
         private const string baseURL = "https://api.api-ninjas.com/v1/trivia?category=";
 
-        public RestClient(string category)
+        public RestClient(string category, string api_key)
         {
             UpdateCategory(category);
+            client.DefaultRequestHeaders.Add("X-Api-Key", api_key);
         }
 
         public void UpdateCategory(string category)
@@ -22,12 +24,12 @@ namespace TriviaCycler
             client.BaseAddress = new Uri(baseURL + category);
         }
 
-        public async Task<string> GetNextQuestion()
+        public async Task<Question[]> GetNextQuestion()
         {
-            using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, ""))
+            using (HttpRequestMessage httpRequest = new HttpRequestMessage(HttpMethod.Get, ""))
             {
-                HttpResponseMessage response = await client.SendAsync(request);
-                return await response.Content.ReadAsStringAsync();
+                HttpResponseMessage httpResponse = await client.SendAsync(httpRequest);
+                return JsonConvert.DeserializeObject<Question[]>(await httpResponse.Content.ReadAsStringAsync());
             }
         }
     }

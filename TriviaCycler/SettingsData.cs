@@ -11,6 +11,8 @@ namespace TriviaCycler
         public int timeToDisplayQuestion { get; set; }
         public int timeToDisplayAnswer { get; set; }
         public string category { get; set; }
+        public float fontMultiplier { get; set; }
+        public string api_key { get; set; }
 
     }
 }

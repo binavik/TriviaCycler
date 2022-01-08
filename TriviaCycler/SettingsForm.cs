@@ -32,16 +32,21 @@ namespace TriviaCycler
             "sportsleisure" 
         };
 
-        public SettingsForm(Form1 form)
+        public SettingsForm(Form1 form, int question, int answer, string category, float multiplier, string api_key)
         {
             InitializeComponent();
             this.settings = form;
+            questionDisplaySeconds.Text = question.ToString();
+            answerDisplaySeconds.Text = answer.ToString();
+            fontBox.Text = multiplier.ToString();
+            apiKeyBox.Text = api_key;
         }
 
         private void saveButtonOnClick(object sender, MouseEventArgs e)
         {
             int questionDisplay, answerDisplay;
             string category;
+            float multiplier;
 
             try{ questionDisplay = Int32.Parse(questionDisplaySeconds.Text); }
             catch { questionDisplay = 60; }
@@ -52,7 +57,10 @@ namespace TriviaCycler
             try { category = categories[categoryBox.SelectedIndex]; }
             catch { category = ""; }
 
-            settings.setNewSettings(questionDisplay, answerDisplay, category);
+            try { multiplier = float.Parse(fontBox.Text); }
+            catch { multiplier = 3.0f; }
+
+            settings.setNewSettings(questionDisplay, answerDisplay, category, multiplier, apiKeyBox.Text);
             this.Close();
         }
 
