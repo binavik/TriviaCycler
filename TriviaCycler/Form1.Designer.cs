@@ -86,10 +86,9 @@ namespace TriviaCycler
             this.timerBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.timerBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.timerBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timerBox.Location = new System.Drawing.Point(0, 280);
-            this.timerBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.timerBox.Location = new System.Drawing.Point(0, 344);
             this.timerBox.Name = "timerBox";
-            this.timerBox.Size = new System.Drawing.Size(1050, 193);
+            this.timerBox.Size = new System.Drawing.Size(1400, 238);
             this.timerBox.TabIndex = 1;
             this.timerBox.Text = "{} in XYZ second(s)";
             this.timerBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,26 +98,26 @@ namespace TriviaCycler
             this.qABox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.qABox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.qABox.Location = new System.Drawing.Point(0, 0);
-            this.qABox.Margin = new System.Windows.Forms.Padding(2);
+            this.qABox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qABox.Name = "qABox";
             this.qABox.ReadOnly = true;
             this.qABox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.qABox.Size = new System.Drawing.Size(1050, 280);
+            this.qABox.Size = new System.Drawing.Size(1400, 344);
             this.qABox.TabIndex = 2;
             this.qABox.Text = "In Rhythmic Gymnastics Competitors Have Five Pieces Of Apparatus The Rope, Hoop, " +
     "Ball, Club And What Else?";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 473);
+            this.ClientSize = new System.Drawing.Size(1400, 582);
             this.Controls.Add(this.qABox);
             this.Controls.Add(this.timerBox);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Menu = this.mainMenu1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Trivia";
             this.ResumeLayout(false);
 
         }
