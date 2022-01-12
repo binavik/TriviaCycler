@@ -23,7 +23,6 @@ namespace TriviaCycler
         private const int DEFAULT_TIME_TO_ANSWER_SECONDS = 60;
         private const int DEFAULT_TIME_BETWEEN_QUESTIONS_SECONDS = 10;
         private const float DEFAULT_FONT_MULTIPLIER = 1.5f;
-        private const string DEFAULT_CATEGORY = "";
         private RestClient client;
         private Task<Question[]> nextQuestion;
         private System.Windows.Forms.Timer timer;
@@ -49,7 +48,7 @@ namespace TriviaCycler
                 this.settings = JsonConvert.DeserializeObject<SettingsData>(data);
                 menuStart.Enabled = true;
                 file.Close();
-                this.client = new RestClient(settings.category, settings.api_key);
+                this.client = new RestClient();
                 this.nextQuestion = client.GetNextQuestion();
             }
             catch
@@ -58,7 +57,6 @@ namespace TriviaCycler
                 {
                     timeToDisplayQuestion = DEFAULT_TIME_TO_ANSWER_SECONDS,
                     timeToDisplayAnswer = DEFAULT_TIME_BETWEEN_QUESTIONS_SECONDS,
-                    category = DEFAULT_CATEGORY,
                     fontMultiplier = DEFAULT_FONT_MULTIPLIER
                 };
             }
@@ -130,7 +128,7 @@ namespace TriviaCycler
 
         private void MenuSettingsOnClick(object sender, System.EventArgs e)
         {
-            SettingsForm tmp = new SettingsForm(this, settings.timeToDisplayQuestion, settings.timeToDisplayAnswer, settings.category, settings.fontMultiplier, settings.api_key);
+            SettingsForm tmp = new SettingsForm(this, settings.timeToDisplayQuestion, settings.timeToDisplayAnswer, settings.fontMultiplier);
             tmp.Show();
         }
 
@@ -172,24 +170,15 @@ namespace TriviaCycler
             timerBox.Text = $"{next} in {time} second(s)";
         }
 
-        public void setNewSettings(int question, int answer, string category, float multiplier, string api_key)
+        public void setNewSettings(int question, int answer, float multiplier)
         {
             settings.timeToDisplayAnswer = answer;
             settings.timeToDisplayQuestion = question;
-            settings.category = category;
             settings.fontMultiplier = multiplier;
-            settings.api_key = api_key;
-            if(api_key != "")
-            {
-                this.client = new RestClient(settings.category, settings.api_key);
-                this.nextQuestion = client.GetNextQuestion();
-                menuStart.Enabled = true;
-                SaveSettings();
-            }
-            else
-            {
-                menuStart.Enabled = false;
-            }
+            this.client = new RestClient();
+            this.nextQuestion = client.GetNextQuestion();
+            menuStart.Enabled = true;
+            SaveSettings();
         }
     }
 }

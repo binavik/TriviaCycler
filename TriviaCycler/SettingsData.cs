@@ -13,12 +13,7 @@ namespace TriviaCycler
         public int timeToDisplayQuestion { get; set; }
         [JsonProperty("answerTime")]
         public int timeToDisplayAnswer { get; set; }
-        [JsonProperty("category")]
-        public string category { get; set; }
         [JsonProperty("fontMultiplier")]
         public float fontMultiplier { get; set; }
-        [JsonProperty("api_key")]
-        public string api_key { get; set; }
-
     }
 }
