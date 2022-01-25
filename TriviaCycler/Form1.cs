@@ -24,7 +24,9 @@ namespace TriviaCycler
         private const int DEFAULT_TIME_BETWEEN_QUESTIONS_SECONDS = 10;
         private const float DEFAULT_FONT_MULTIPLIER = 1.5f;
         private RestClient client;
-        private Task<Question[]> nextQuestion;
+        private string nextQuestion;
+        private Question deserializedQuestion;
+        private bool hasBeenDeserialized;
         private System.Windows.Forms.Timer timer;
         private State state;
         private int count;
@@ -49,7 +51,7 @@ namespace TriviaCycler
                 menuStart.Enabled = true;
                 file.Close();
                 this.client = new RestClient();
-                this.nextQuestion = client.GetNextQuestion();
+                await Task.Run(() => PrepareFirstQuestion());
             }
             catch
             {
@@ -81,7 +83,7 @@ namespace TriviaCycler
             }
         }
 
-        private void OnTimerTick(object Sender, EventArgs e)
+        private async void OnTimerTick(object Sender, EventArgs e)
         {
             count++;
             switch (state)
@@ -95,16 +97,30 @@ namespace TriviaCycler
                 default:
                     break;
             }
+            if (!hasBeenDeserialized)
+            {
+                try
+                {
+                    this.deserializedQuestion = JsonConvert.DeserializeObject<Question[]>(this.nextQuestion)[0];
+                    this.hasBeenDeserialized = true;
+                }
+                catch
+                {
+                    this.nextQuestion = await this.client.GetNextQuestion();
+                    this.hasBeenDeserialized = false;
+                }
+            }
         }
 
-        private void ShowingQuestionState()
+        private async void ShowingQuestionState()
         {
             if(count >= settings.timeToDisplayQuestion)
             {
-                qABox.Text = this.nextQuestion.Result[0].answer;
+                qABox.Text = this.deserializedQuestion.answer;
                 count = 0;
                 this.state = State.SHOWING_ANSWER;
-                this.nextQuestion = client.GetNextQuestion();
+                this.nextQuestion = await client.GetNextQuestion();
+                this.hasBeenDeserialized = false;
             }
             UpdateTimer(settings.timeToDisplayQuestion - count, "Answer");
         }
@@ -113,7 +129,7 @@ namespace TriviaCycler
         {
             if(count >= settings.timeToDisplayAnswer)
             {
-                qABox.Text = this.nextQuestion.Result[0].question;
+                qABox.Text = this.deserializedQuestion.question;
                 setFontSize(qABox);
                 count = 0;
                 this.state = State.SHOWING_QUESTION;
@@ -142,7 +158,7 @@ namespace TriviaCycler
         
         private void MenuStartOnClick(object sender, System.EventArgs e)
         {
-            qABox.Text = this.nextQuestion.Result[0].question;
+            qABox.Text = this.deserializedQuestion.question;
             setFontSize(qABox);
             menuStop.Enabled = true;
             menuStart.Enabled = false;
@@ -170,15 +186,29 @@ namespace TriviaCycler
             timerBox.Text = $"{next} in {time} second(s)";
         }
 
-        public void setNewSettings(int question, int answer, float multiplier)
+        public async void setNewSettings(int question, int answer, float multiplier)
         {
             settings.timeToDisplayAnswer = answer;
             settings.timeToDisplayQuestion = question;
             settings.fontMultiplier = multiplier;
             this.client = new RestClient();
-            this.nextQuestion = client.GetNextQuestion();
+            await Task.Run(() => PrepareFirstQuestion());
             menuStart.Enabled = true;
             SaveSettings();
+        }
+
+        private async void PrepareFirstQuestion()
+        {
+            this.nextQuestion = await client.GetNextQuestion();
+            try
+            {
+                this.deserializedQuestion = JsonConvert.DeserializeObject<Question[]>(this.nextQuestion)[0];
+                this.hasBeenDeserialized = true;
+            }
+            catch
+            {
+                PrepareFirstQuestion();
+            }
         }
     }
 }

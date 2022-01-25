@@ -30,13 +30,13 @@ namespace TriviaCycler
             client.BaseAddress = new Uri(baseURL + category);
         }
 
-        public async Task<Question[]> GetNextQuestion()
+        public async Task<string> GetNextQuestion()
         {
             using (HttpRequestMessage httpRequest = new HttpRequestMessage(HttpMethod.Get, ""))
             {
                 HttpResponseMessage httpResponse = await client.SendAsync(httpRequest);
-                Debug.WriteLine(httpResponse.Content.ReadAsStringAsync().Result);
-                return JsonConvert.DeserializeObject<Question[]>(await httpResponse.Content.ReadAsStringAsync());
+                string content = await httpResponse.Content.ReadAsStringAsync();
+                return content;
             }
         }
     }
