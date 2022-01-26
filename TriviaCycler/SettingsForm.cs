@@ -14,19 +14,18 @@ namespace TriviaCycler
     {
         private Form1 settings;
 
-        public SettingsForm(Form1 form, int question, int answer, float multiplier)
+        public SettingsForm(Form1 form, int question, int answer, int maxFontSize)
         {
             InitializeComponent();
             this.settings = form;
             questionDisplaySeconds.Text = question.ToString();
             answerDisplaySeconds.Text = answer.ToString();
-            fontBox.Text = multiplier.ToString();
+            fontBox.Text = maxFontSize.ToString();
         }
 
         private void saveButtonOnClick(object sender, MouseEventArgs e)
         {
-            int questionDisplay, answerDisplay;
-            float multiplier;
+            int questionDisplay, answerDisplay, maxFontSize;
 
             try{ questionDisplay = Int32.Parse(questionDisplaySeconds.Text); }
             catch { questionDisplay = 60; }
@@ -34,10 +33,10 @@ namespace TriviaCycler
             try { answerDisplay = Int32.Parse(answerDisplaySeconds.Text); }
             catch { answerDisplay = 10; }
 
-            try { multiplier = float.Parse(fontBox.Text); }
-            catch { multiplier = 3.0f; }
+            try { maxFontSize = Int32.Parse(fontBox.Text); }
+            catch { maxFontSize = 72; }
 
-            settings.setNewSettings(questionDisplay, answerDisplay, multiplier);
+            settings.setNewSettings(questionDisplay, answerDisplay, maxFontSize);
             this.Close();
         }
 

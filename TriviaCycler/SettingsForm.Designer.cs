@@ -67,7 +67,7 @@ namespace TriviaCycler
             // 
             this.questionDisplaySeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.questionDisplaySeconds.Location = new System.Drawing.Point(187, 14);
-            this.questionDisplaySeconds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.questionDisplaySeconds.Margin = new System.Windows.Forms.Padding(4);
             this.questionDisplaySeconds.Name = "questionDisplaySeconds";
             this.questionDisplaySeconds.Size = new System.Drawing.Size(283, 30);
             this.questionDisplaySeconds.TabIndex = 2;
@@ -76,7 +76,7 @@ namespace TriviaCycler
             // 
             this.answerDisplaySeconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.answerDisplaySeconds.Location = new System.Drawing.Point(187, 52);
-            this.answerDisplaySeconds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.answerDisplaySeconds.Margin = new System.Windows.Forms.Padding(4);
             this.answerDisplaySeconds.Name = "answerDisplaySeconds";
             this.answerDisplaySeconds.Size = new System.Drawing.Size(283, 30);
             this.answerDisplaySeconds.TabIndex = 3;
@@ -85,7 +85,7 @@ namespace TriviaCycler
             // 
             this.saveSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.saveSettings.Location = new System.Drawing.Point(8, 129);
-            this.saveSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveSettings.Margin = new System.Windows.Forms.Padding(4);
             this.saveSettings.Name = "saveSettings";
             this.saveSettings.Size = new System.Drawing.Size(156, 34);
             this.saveSettings.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace TriviaCycler
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cancelButton.Location = new System.Drawing.Point(311, 129);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(156, 34);
             this.cancelButton.TabIndex = 5;
@@ -112,15 +112,15 @@ namespace TriviaCycler
             this.label4.Location = new System.Drawing.Point(3, 95);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 25);
+            this.label4.Size = new System.Drawing.Size(144, 25);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Font Multiplier:";
+            this.label4.Text = "Max Font Size:";
             // 
             // fontBox
             // 
             this.fontBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.fontBox.Location = new System.Drawing.Point(187, 91);
-            this.fontBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fontBox.Margin = new System.Windows.Forms.Padding(4);
             this.fontBox.Name = "fontBox";
             this.fontBox.Size = new System.Drawing.Size(283, 30);
             this.fontBox.TabIndex = 9;
@@ -138,7 +138,7 @@ namespace TriviaCycler
             this.Controls.Add(this.questionDisplaySeconds);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(498, 219);
             this.MinimumSize = new System.Drawing.Size(498, 219);
             this.Name = "SettingsForm";

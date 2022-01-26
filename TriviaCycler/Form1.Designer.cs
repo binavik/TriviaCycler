@@ -104,8 +104,7 @@ namespace TriviaCycler
             this.qABox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.qABox.Size = new System.Drawing.Size(1400, 344);
             this.qABox.TabIndex = 2;
-            this.qABox.Text = "In Rhythmic Gymnastics Competitors Have Five Pieces Of Apparatus The Rope, Hoop, " +
-    "Ball, Club And What Else?";
+            this.qABox.Text = "Question";
             // 
             // Form1
             // 

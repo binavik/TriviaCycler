@@ -14,6 +14,6 @@ namespace TriviaCycler
         [JsonProperty("answerTime")]
         public int timeToDisplayAnswer { get; set; }
         [JsonProperty("fontMultiplier")]
-        public float fontMultiplier { get; set; }
+        public int maxFontSize { get; set; }
     }
 }

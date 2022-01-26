@@ -16,20 +16,20 @@ namespace TriviaCycler
         [JsonProperty("question")]
         public string question { get; set; }
         [JsonProperty("value")]
-        public int value { get; set; }
+        public object value { get; set; }
         [JsonProperty("airdate")]
-        public string airDate { get; set; }
+        public DateTime airDate { get; set; }
         [JsonProperty("created_at")]
-        public string created { get; set; }
+        public DateTime created { get; set; }
         [JsonProperty("updated_at")]
-        public string updated { get; set; }
+        public DateTime updated { get; set; }
         [JsonProperty("category_id")]
         public int categoryId { get; set; }
 
         [JsonProperty("game_id", NullValueHandling = NullValueHandling.Ignore)]
-        public int gameId { get; set; }
+        public object gameId { get; set; }
         [JsonProperty("invalid_count", NullValueHandling = NullValueHandling.Ignore)]
-        public int invalidCount { get; set; }
+        public object invalidCount { get; set; }
         [JsonProperty("category")]
         public Category category { get; set; }
 
@@ -40,9 +40,9 @@ namespace TriviaCycler
             [JsonProperty("title")]
             public string title { get; set; }
             [JsonProperty("created_at")]
-            public string created { get; set; }
+            public DateTime created { get; set; }
             [JsonProperty("updated_at")]
-            public string updated { get; set; }
+            public DateTime updated { get; set; }
             [JsonProperty("clues_count")]
             public int cluesCount { get; set; }
         }
